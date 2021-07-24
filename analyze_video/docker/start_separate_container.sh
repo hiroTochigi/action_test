@@ -1,2 +1,2 @@
 
-docker run --name separate_audio -itd -v `pwd`:/analyze hirotochigi/separate_audio
+docker run --name separate_audio -d -v `pwd`:/analyze hirotochigi/separate_audio
