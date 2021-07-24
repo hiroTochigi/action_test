@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: analyze_video
-          path: analyze_video/input/*.mp3
+          path: analyze_video/audio/input/*.mp3
