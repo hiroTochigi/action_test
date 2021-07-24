@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: analyze_video/audio
-          path: analyze_video/audio/output/*.mp3
+          path: analyze_video/audio/output/*.wav
