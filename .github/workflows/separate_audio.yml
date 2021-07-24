@@ -26,7 +26,7 @@ jobs:
           cd analyze_video
           mkdir -p audio/input
           mkdir -p audio/output
-          mkdir -p audio/plot
+          mkdir -p plot
           wget https://ondemand.npr.org/anon.npr-mp3/npr/atc/2021/07/20210723_atc_web_new_us_capitol_police_chief.mp3 -P audio/input/
           docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
           # bash docker/start_separate_container.sh
