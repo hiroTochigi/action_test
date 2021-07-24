@@ -23,12 +23,10 @@ jobs:
 
       - name: Start Script
         run: |
-          cd analyze_video
           mkdir -p audio/input
           mkdir -p audio/output
           mkdir -p audio/plot
           wget https://ondemand.npr.org/anon.npr-mp3/npr/atc/2021/07/20210723_atc_web_new_us_capitol_police_chief.mp3?orgId=1&topicId=1014&d=154&p=2&story=1019877437&dl=1&sc=siteplayer&siteplayer=true&size=2478542&dl=1 -p audio/input
-          cd ..
           
       - name: Upload Result
         uses: actions/upload-artifact@v2
