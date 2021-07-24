@@ -28,8 +28,9 @@ jobs:
           mkdir -p audio/output
           mkdir -p audio/plot
           wget https://ondemand.npr.org/anon.npr-mp3/npr/atc/2021/07/20210723_atc_web_new_us_capitol_police_chief.mp3 -P audio/input/
-          bash docker/start_separate_container.sh
-          python separate_audio.py
+          docker run --name separate_audio -d -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
+          # bash docker/start_separate_container.sh
+          # python separate_audio.py
           
       - name: Upload Result
         uses: actions/upload-artifact@v2
