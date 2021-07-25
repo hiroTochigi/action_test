@@ -35,5 +35,5 @@ jobs:
       - name: Upload Result
         uses: actions/upload-artifact@v2
         with:
-          name: analyze_video
-          path: analyze_video/audio/output/*.wav
+          name: plot
+          path: analyze_video/plot/*
