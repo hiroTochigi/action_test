@@ -270,7 +270,7 @@ for root, dirs, files in os.walk(INPUT_DIR):
     for audio_file in files:
 
         audio_dir = f"{audio_file.split('.')[0]}/"
-        check_or_make_dir(f"{OUTPUT_DIR}")
+        check_or_make_dir(f"{OUTPUT_DIR}{audio_dir}")
         check_or_make_dir(f"{PLOT}{audio_dir}")
 
         input_audio = f"{INPUT_DIR}{audio_file}"

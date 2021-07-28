@@ -26,14 +26,18 @@ jobs:
           cd analyze_video
           mkdir -p audio/input
           mkdir -p audio/output
+          mkdir -p transcript
           mkdir -p plot
           wget https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
-          docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
+          docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio 
+          docker run --name transcript_audio -v `pwd`:/analyze hirotochigi/deepspeech
+          docker exec separate_audio python analyze/src/separate_audio.py
+          docker exec transcript_audio python analyze/src/transcript.py
           # bash docker/start_separate_container.sh
           # python separate_audio.py
           
       - name: Upload Result
         uses: actions/upload-artifact@v2
         with:
-          name: plot
-          path: analyze_video/plot/*
+          name: result
+          path: analyze_video/transcript/*
