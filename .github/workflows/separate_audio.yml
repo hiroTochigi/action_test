@@ -29,11 +29,12 @@ jobs:
         run: |
           cd analyze_video
           mkdir -p audio/input
-          mkdir -p audio/output/{{ matrix.directory }}
+          mkdir -p audio/output
           mkdir -p transcript
           mkdir -p plot
           mkdir -p model
-          #ls audio/output/
+          touch audio/output/{{ matrix.directory }}.txt
+          ls audio/output/
           #echo "download audio data"
           #wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
           #ls audio/input/
@@ -53,4 +54,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: result
-          path: analyze_video/transcript/*
+          path: analyze/audio/*
+          #path: analyze_video/transcript/*
