@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-    matrix:
-      directory: [1, 2, 3]
+      matrix:
+        directory: [1, 2, 3]
 
     steps:
       - name: Checkout Code
