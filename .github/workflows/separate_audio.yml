@@ -33,18 +33,18 @@ jobs:
           mkdir -p transcript
           mkdir -p plot
           mkdir -p model
-          ls audio/output/
-          echo "download audio data"
-          wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
-          ls audio/input/
-          echo "download model.pbmm"
-          wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm -P model/
-          ls model/
-          echo "download model.scorer"
-          wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer -P model/
-          ls model/
-          docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
-          docker run --name transcript_audio -v `pwd`:/analyze hirotochigi/deepspeech python analyze/src/transcript.py
+          #ls audio/output/
+          #echo "download audio data"
+          #wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
+          #ls audio/input/
+          #echo "download model.pbmm"
+          #wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm -P model/
+          #ls model/
+          #echo "download model.scorer"
+          #wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer -P model/
+          #ls model/
+          #docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
+          #docker run --name transcript_audio -v `pwd`:/analyze hirotochigi/deepspeech python analyze/src/transcript.py
 
           # bash docker/start_separate_container.sh
           # python separate_audio.py
