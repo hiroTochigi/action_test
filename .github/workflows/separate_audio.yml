@@ -9,6 +9,10 @@ jobs:
     name: Separate Audio
     runs-on: ubuntu-latest
 
+    strategy:
+    matrix:
+      directory: [1, 2, 3]
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -25,10 +29,11 @@ jobs:
         run: |
           cd analyze_video
           mkdir -p audio/input
-          mkdir -p audio/output
+          mkdir -p audio/output/{{ matrix.directory }}
           mkdir -p transcript
           mkdir -p plot
           mkdir -p model
+          ls audio/output/
           echo "download audio data"
           wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
           ls audio/input/
