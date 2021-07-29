@@ -30,8 +30,8 @@ jobs:
           mkdir -p plot
           mkdir -p model
           wget https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
-          wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-checkpoint.tar.gz -P /analyze/model/
-          wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer -P /analyze/model/
+          wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-checkpoint.tar.gz -P model/
+          wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer -P model/
           docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
           docker run --name transcript_audio -v `pwd`:/analyze hirotochigi/deepspeech python analyze/src/transcript.py
 
