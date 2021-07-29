@@ -9,9 +9,9 @@ jobs:
     name: Separate Audio
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        directory: [1, 2, 3]
+    #######strategy:
+    ####  matrix:
+    ####    directory: [1, 2, 3]
 
     steps:
       - name: Checkout Code
