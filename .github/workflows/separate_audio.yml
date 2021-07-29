@@ -54,5 +54,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: result
-          path: analyze/audio/*
+          path: analyze/audio/output/*
           #path: analyze_video/transcript/*
