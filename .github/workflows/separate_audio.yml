@@ -33,10 +33,11 @@ jobs:
           mkdir -p transcript
           mkdir -p plot
           mkdir -p model
-          touch audio/output/{{ matrix.directory }}.txt
+          echo test >> audio/output/{{ matrix.directory }}.txt
           ls audio/output/
-          #echo "download audio data"
-          #wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
+          echo "download audio data"
+          wget https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
+          ls audio/output/
           #ls audio/input/
           #echo "download model.pbmm"
           #wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm -P model/
