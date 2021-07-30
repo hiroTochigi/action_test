@@ -29,15 +29,21 @@ jobs:
           mkdir -p transcript
           mkdir -p plot
           mkdir -p model
-          echo "download audio data"
-          wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
-          ls audio/input/
+          mkdir -p video
+          wget http://archive-media.granicus.com:443/OnDemand/cambridgema/cambridgema_3750a9a5-8b39-4502-9df9-faccb88f37e9.mp4 -P video/
+
+          #echo "download audio data"
+          #wget -q https://ondemand.npr.org/anon.npr-mp3/npr/fa/2021/07/20210723_fa_01.mp3 -P audio/input/
+          #ls audio/input/
+
           echo "download model.pbmm"
           wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm -P model/
           ls model/
           echo "download model.scorer"
           wget -q https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer -P model/
           ls model/
+
+          docker run --name extract_audio -v `pwd`:/analyze hirotochigi/moviepy python analyze/src/extract_audio.py
           docker run --name separate_audio -v `pwd`:/analyze hirotochigi/separate_audio python analyze/src/separate_audio.py
           docker run --name transcript_audio -v `pwd`:/analyze hirotochigi/deepspeech python analyze/src/transcript.py
 
